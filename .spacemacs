@@ -17,7 +17,7 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      (git :variables
@@ -25,7 +25,13 @@
      markdown
      org
      ;; shell
-     ;; syntax-checking
+     syntax-checking
+     csharp
+     emacs-lisp
+     python
+     html
+     javascript
+     eyebrowse
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -148,6 +154,7 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq powerline-default-separator 'arrow)
+  (setq-default omnisharp-server-executable-path "~/tools/omnisharp/OmniSharp.exe")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -162,7 +169,6 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
- '(org-agenda-files (quote ("~/notes/tasks/2015/acumatica.org")))
  '(ring-bell-function (quote ignore) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
