@@ -32,6 +32,7 @@
      html
      javascript
      eyebrowse
+     gnus
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -155,6 +156,7 @@ before layers configuration."
 layers configuration."
   (setq powerline-default-separator 'arrow)
   (setq-default omnisharp-server-executable-path "~/tools/omnisharp/OmniSharp.exe")
+
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
