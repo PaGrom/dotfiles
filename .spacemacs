@@ -155,6 +155,5 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq powerline-default-separator 'arrow)
-  (setq-default omnisharp-server-executable-path "~/tools/omnisharp/OmniSharp.exe")
-
+  (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp.cmd")
 )
