@@ -33,6 +33,7 @@
      javascript
      eyebrowse
      gnus
+     restclient
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -155,5 +156,32 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq powerline-default-separator 'arrow)
-  (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp.cmd")
+  (if (eq system-type 'windows-nt)
+      (progn
+        (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp.cmd")
+        (setenv "GIT_ASKPASS" "git-gui--askpass")
+        (load-file "~/.ssh/agent.env.el"))
+    (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp"))
 )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
+ '(ahs-idle-timer 0 t)
+ '(ahs-inhibit-face-list nil)
+ '(org-agenda-files
+   (quote
+    ("~/notes/tasks/2015/toy-factory.org_archive" "~/notes/tasks/2015/my-little-lispy.org_archive" "~/notes/tasks/2015/misc.org_archive" "~/notes/tasks/2015/acumatica.org_archive" "~/notes/tasks/2015/toy-factory.org" "~/notes/tasks/2015/my-little-lispy.org" "~/notes/tasks/2015/misc.org" "~/notes/tasks/2015/acumatica.org")))
+ '(ring-bell-function (quote ignore) t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((((class color) (min-colors 257)) (:foreground "#F8F8F2" :background "#272822")) (((class color) (min-colors 89)) (:foreground "#F5F5F5" :background "#1B1E1C"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
