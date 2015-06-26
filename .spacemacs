@@ -34,6 +34,7 @@
      eyebrowse
      gnus
      restclient
+     go
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -162,6 +163,20 @@ layers configuration."
         (setenv "GIT_ASKPASS" "git-gui--askpass")
         (load-file "~/.ssh/agent.env.el"))
     (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp"))
+
+  (defun my-pretty-lambda ()
+    "make some word or string show as pretty Unicode symbols"
+    (setq prettify-symbols-alist
+          '(
+            ("lambda" . 955) ; λ
+            )))
+  (add-hook 'scheme-mode-hook 'my-pretty-lambda)
+  (global-prettify-symbols-mode 1)
+
+  (add-to-list 'auto-mode-alist '("\\.mll\\'" . scheme-mode))
+  (set-variable (quote scheme-program-name) "mono /home/retran/code/my-little-lispy/bin/mll.exe")
+
+  (add-to-list 'exec-path "/home/retran/go/bin/")
 )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
