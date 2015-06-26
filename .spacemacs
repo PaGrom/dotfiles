@@ -163,7 +163,7 @@ layers configuration."
         (setenv "GIT_ASKPASS" "git-gui--askpass")
         (load-file "~/.ssh/agent.env.el"))
     (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp"))
-
+  (setq org-default-notes-file "~/notes/inbox.org")
   (defun my-pretty-lambda ()
     "make some word or string show as pretty Unicode symbols"
     (setq prettify-symbols-alist
