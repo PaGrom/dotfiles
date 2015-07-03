@@ -125,11 +125,11 @@ before layers configuration."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'.
-   dotspacemacs-active-transparency 90
+   dotspacemacs-active-transparency 95
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'.
-   dotspacemacs-inactive-transparency 90
+   dotspacemacs-inactive-transparency 95
    ;; If non nil unicode symbols are displayed in the mode line.
    dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
@@ -164,8 +164,12 @@ layers configuration."
         (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp.cmd")
         (setenv "GIT_ASKPASS" "git-gui--askpass")
         (load-file "~/.ssh/agent.env.el"))
-    (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp"))
+    (progn
+      (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp")
+      (toggle-transparency)))
+
   (setq org-default-notes-file "~/notes/agenda.org")
+
   (defun my-pretty-lambda ()
     "make some word or string show as pretty Unicode symbols"
     (setq prettify-symbols-alist
@@ -178,8 +182,6 @@ layers configuration."
 
   (add-to-list 'auto-mode-alist '("\\.mll\\'" . scheme-mode))
   (set-variable (quote scheme-program-name) "mono /home/retran/code/my-little-lispy/bin/mll.exe")
-
-  (add-to-list 'exec-path "/home/retran/go/bin/")
 )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
