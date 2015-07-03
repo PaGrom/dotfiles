@@ -76,8 +76,4 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set go PATH
-export GOROOT=/usr/lib/go
-export GOPATH=$HOME/go
-export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 fi

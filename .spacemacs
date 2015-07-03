@@ -24,6 +24,7 @@
           git-gutter-use-fringe t)
      markdown
      org
+     racket
      shell
      syntax-checking
      csharp
@@ -171,6 +172,7 @@ layers configuration."
             ("lambda" . 955) ; λ
             )))
   (add-hook 'scheme-mode-hook 'my-pretty-lambda)
+  (add-hook 'racket-mode-hook 'my-pretty-lambda)
   (global-prettify-symbols-mode 1)
 
   (add-to-list 'auto-mode-alist '("\\.mll\\'" . scheme-mode))
