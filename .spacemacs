@@ -31,6 +31,7 @@
      gnus
      restclient
      go
+     clojure
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -159,9 +160,8 @@ layers configuration."
         (setenv "GIT_ASKPASS" "git-gui--askpass")
         (load-file "~/.ssh/agent.env.el"))
     (progn
-      (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp")
-      (toggle-transparency)))
-
+      (setq-default omnisharp-server-executable-path "~/tools/omnisharp-roslyn/scripts/Omnisharp")))
+  (toggle-transparency)
   (setq org-default-notes-file "~/notes/agenda.org")
 
   (defun my-pretty-lambda ()
@@ -171,8 +171,10 @@ layers configuration."
             ("lambda" . 955) ; λ
             ("fn" . 955) ; λ
             )))
+  
   (add-hook 'scheme-mode-hook 'my-pretty-lambda)
   (add-hook 'racket-mode-hook 'my-pretty-lambda)
+  (add-hoo 'clojure-mode-hook 'my-pretty-lambda)
   (global-prettify-symbols-mode 1)
 
   (add-to-list 'auto-mode-alist '("\\.mll\\'" . scheme-mode))
