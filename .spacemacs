@@ -174,7 +174,7 @@ layers configuration."
   
   (add-hook 'scheme-mode-hook 'my-pretty-lambda)
   (add-hook 'racket-mode-hook 'my-pretty-lambda)
-  (add-hoo 'clojure-mode-hook 'my-pretty-lambda)
+  (add-hook 'clojure-mode-hook 'my-pretty-lambda)
   (global-prettify-symbols-mode 1)
 
   (add-to-list 'auto-mode-alist '("\\.mll\\'" . scheme-mode))
